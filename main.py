@@ -32,11 +32,11 @@ def guess():
 
 
 def average(list_for_average):
-    try:
-        sum_all = sum(list_for_average)
-        return round(sum_all / len(list_for_average))
-    except ValueError:
-        print('no any data')
+    if type(list_for_average) = 'list':
+        try:
+            return round(sum(list_for_average) / len(list_for_average))
+        except ValueError:
+            print('no any data')
 
 def main():
     step: list = []
@@ -56,12 +56,15 @@ def main():
     print('Enter "data" to read the data,enter"exit" to exit,enter"data average" to get average of data')
     while True:
         input_now = input()
-        if input_now == 'data':
-            print(f'history data:{data}')
-        elif input_now == 'data average':
-            print(f'average of data is {average(data)}')
-        elif input_now == 'exit':
-            exit(0)
+        match input_now:
+            case 'data':
+                print(f'history data:{data})
+            case 'data average':
+                print(f'average of data is {average(data)}')
+            case 'exit':
+                exit(0)
+            case _:
+                pass
         sleep(0.001)
 
 
